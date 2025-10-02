@@ -21,7 +21,7 @@ time.sleep(1.5)
 print(
     "Unfortunately, you somehow landed into the Wilderdeep, a forest away from your world."
 )
-time.sleep(1.5)
+time.sleep(2)
 
 fairy_help = input(
     "But I can help you escape this world, do you want my help? (TYPE yes or no) "

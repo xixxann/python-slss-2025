@@ -335,8 +335,10 @@ if fairy_help == "yes":
         if trivia_question == "raven":
             print("Incorrect.")
             time.sleep(1.5)
+            print("Within seconds, your arms start to grow into long brown branches.")
+            time.sleep(3)
             print(
-                "The world around you cracks like glass, and you're swallowed by darkness"
+                "Soon, your hair then starts to grow leaves and you see yourself rising higher and higher..."
             )
             time.sleep(3)
-            print("YOU HAVE DIED.")
+            print("YOU HAVE BECOME A TREE.")

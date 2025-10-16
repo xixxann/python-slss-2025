@@ -2,7 +2,7 @@
 # Author: Angel Li
 # 14 October 2025
 
-
+import random
 import turtle
 
 window = turtle.Screen()  # Set up the window and its attributes
@@ -109,12 +109,19 @@ def make_cookie(x: int, y: int):
 
 
 mikey.speed(0)
-# Make cookies in an x
-for counter in range(50):
-    counter = counter * 50
-    make_cookie(counter, counter)
-    make_cookie(counter, -counter)
-    make_cookie(-counter, -counter)
-    make_cookie(-counter, counter)
+# # Make cookies in an x
+# for counter in range(50):
+#     counter = counter * 50
+#     make_cookie(counter, counter)
+#     make_cookie(counter, -counter)
+#     make_cookie(-counter, -counter)
+#     make_cookie(-counter, counter)
+
+# Make cookies in random locations
+# Make a 1000 cookies
+for _ in range(1000):
+    x = random.randrange(-700, 701)
+    y = random.randrange(-700, 701)
+    make_cookie(x, y)
 
 window.exitonclick()

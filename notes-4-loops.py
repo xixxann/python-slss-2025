@@ -77,34 +77,44 @@ mikey.color("darkgreen")  # colour
 # mikey.forward(200)
 # mikey.hideturtle()
 
-# MAKE 100 COOKIES
-for counter in range(100):
-    counter = counter * 50
+
+# Create a fn that makes a cookie
+# at (x.y)
+def make_cookie(x: int, y: int):
     # Make sure that turtle is pointing east
     mikey.setheading(0)
     # Change the cookie colour
     mikey.color("brown")
     # Draw a circle
     mikey.pu()
-    mikey.goto(-5 + counter, -30 + counter)
+    mikey.goto(-5 + x, -30 + y)
     mikey.pd()
     mikey.circle(30)
     # Put a chocolate chip on the top left side
     mikey.pu()
-    mikey.goto(-10 + counter, 10 + counter)
+    mikey.goto(-10 + x, 10 + y)
     mikey.stamp()
     # Chocolate chip on the top right
-    mikey.goto(10 + counter, 10 + counter)
+    mikey.goto(10 + x, 10 + y)
     mikey.stamp()
     # Chocolate chip on the bottom right
-    mikey.goto(10 + counter, -10 + counter)
+    mikey.goto(10 + x, -10 + y)
     mikey.stamp()
     # Chocolate chip on the bottom left
-    mikey.goto(-10 + counter, -10 + counter)
+    mikey.goto(-10 + x, -10 + y)
     mikey.stamp()
     # Chocolate chip in the middle
-    mikey.goto(0 + counter, 0 + counter)
+    mikey.goto(0 + x, 0 + y)
     mikey.stamp()
 
+
+mikey.speed(0)
+# Make cookies in an x
+for counter in range(50):
+    counter = counter * 50
+    make_cookie(counter, counter)
+    make_cookie(counter, -counter)
+    make_cookie(-counter, -counter)
+    make_cookie(-counter, counter)
 
 window.exitonclick()

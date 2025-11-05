@@ -43,6 +43,15 @@ def draw_asymmetric_tree(level: int, branch_length: float):
             draw_asymmetric_tree(level - 1, branch_length * 0.3)
 
 
+# Dictionary to hold colours
+LEAF_COLOURS = {
+    "spring": "#ffc0be",
+    "summer": "#c5d86d",
+    "fall": "#ba1200",
+    "winter": "#e3f2fd",
+}
+
+
 def draw_tree(level: int, branch_length: float):
     """A recursive function to draw trees
     level - the levels of branches
@@ -51,7 +60,7 @@ def draw_tree(level: int, branch_length: float):
     # Base case is when level is 0
     if level == 0:
         # Create a leaf
-        t.color("darkgreen")
+        t.color(LEAF_COLOURS["summer"])
         t.stamp()
         t.color("brown")
     # For all other levels
@@ -107,7 +116,7 @@ t.goto(0, -180)
 t.pendown()
 
 
-# draw_complicated_tree(4, 128)
+draw_tree(2, 128)
 wn.exitonclick()
 
 

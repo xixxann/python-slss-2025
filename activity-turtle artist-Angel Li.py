@@ -9,6 +9,7 @@ import turtle
 
 wn = turtle.Screen()
 t = turtle.Turtle()
+wn.bgcolor("lightblue")
 
 # set up turtle
 t.pensize(5)
@@ -25,9 +26,6 @@ PETAL_COLOURS = {
     "cornflower blue": "#5C95FF",
     # yellows
     "sunglow": "#FDCA40",
-    # reds
-    "bittersweet": "#E87461",
-    "melon red": "#FFA9A3",
     # purples
     "dark purple": "#592E83",
     "purple": "#9984D4",
@@ -77,7 +75,7 @@ def draw_flower_recursively(petal_number: int, petal_length: float):
         draw_flower_recursively(petal_number - 1, petal_length * 0.7)
 
 
-draw_flower_recursively(7, 250)
+draw_flower_recursively(11, 200)
 
 
 # # draw flower with more petals

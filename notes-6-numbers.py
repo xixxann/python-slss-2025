@@ -6,13 +6,82 @@
 
 # Create an algorithm to gather data to find the most popular bubble tea place around us
 
+import os
+
+NUM_VOTERS = 5
+
+
 # Version 1
-# Show all the choices
-# Ask the user for their choice
-# Keep track of a tally
-# Data analysis
-# Give the raw scores
-# Give scores as a percentage
+def vote_listed_choices():
+    """Display all choices
+    5 Users vote for their choice
+    Results will be printed"""
+    CHOICES = [
+        "A. Blenz",
+        "B. Bubble Queen",
+        "C. Sun Tea",
+        "D. heytea",
+        "E. CoCo",
+        "F. Fresh T",
+    ]
+
+    # buckets to hold all votes
+    blenz = 0
+    bubble_queen = 0
+    sun_tea = 0
+    heytea = 0
+    coco = 0
+    fresh_t = 0
+    spoiled_votes = 0
+
+    for _ in range(NUM_VOTERS):
+        # Clear screen
+        os.system("clear")
+        # Show all the choices
+        print("Vote for your favourte from the list.")
+        print("Give the letter of your choice.")
+        for choice in CHOICES:
+            print(choice)
+
+        # Ask the user for their choice
+        vote = input().strip(".,?! ").lower()
+        # Keep track of a tally
+        if vote == "a":
+            blenz = blenz + 1
+        elif vote == "b":
+            bubble_queen += 1
+        elif vote == "c":
+            sun_tea += 1
+        elif vote == "d":
+            heytea += 1
+        elif vote == "e":
+            coco += 1
+        elif vote == "f":
+            fresh_t += 1
+        else:
+            spoiled_votes += 1
+
+    # Data analysis
+    # Give the raw scores
+    print("Voting Results ---")
+    print(f"Blenz: {blenz} votes")
+    print(f"Bubble Queen: {bubble_queen} votes")
+    print(f"Sun Tea: {sun_tea} votes")
+    print(f"HeyTea: {heytea} votes")
+    print(f"CoCo: {coco} votes")
+    print(f"Fresh T: {fresh_t} votes")
+    print(f"Spoiled votes: {spoiled_votes} votes")
+    # Give scores as a percentage
+    print("Vote share percentage ---")
+    total = blenz + bubble_queen + sun_tea + heytea + coco + fresh_t + spoiled_votes
+    print("Voting Results ---")
+    print(f"Blenz: {blenz / total * 100} %")
+    print(f"Bubble Queen: {bubble_queen / total * 100} %")
+    print(f"Sun Tea: {sun_tea / total * 100} %")
+    print(f"HeyTea: {heytea / total * 100} %")
+    print(f"CoCo: {coco / total * 100} %")
+    print(f"Fresh T: {fresh_t / total * 100} %")
+    print(f"Spoiled votes: {spoiled_votes / total * 100} votes")
 
 
 # Version 2
@@ -21,3 +90,11 @@
 # Data analysis
 # Give the raw scores
 # Give scores as a percentage
+
+
+def main():
+    vote_listed_choices()
+
+
+if __name__ == "__main__":
+    main()

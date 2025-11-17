@@ -85,6 +85,45 @@ def vote_listed_choices():
 
 
 # Version 2
+def vote_open_choice():
+    """Keeps track dynamically of user's choice.
+    Note: choices must match text exactly (case is not sensitive)"""
+
+    votes = {}  # holds vote information    key     -> value
+    #                           place   -> num votes
+
+    for _ in range(NUM_VOTERS):
+        # Ask the user what their fave
+        os.system("clear")
+        cur_vote = (
+            input("What's your favourite local bubble tea cafe? ")
+            .lower()
+            .strip(",.?! ")
+        )
+
+        # Checks if current place is in the votes dictionary
+        # If it doesn't exist, initialize the key-value pair
+        if cur_vote not in votes:
+            votes[cur_vote] = 1
+        else:
+            votes[cur_vote] += 1
+
+    # Print the results
+    print("-------------------------------------")
+    print("Results:")
+
+    # By default, iterating over a dictionary gives you the keys
+    for place in votes:
+        # Print the raw score and percentage for each key in the dictionary
+        percentage = votes[place] / NUM_VOTERS * 100
+
+        print(
+            f"{place.capitalize()} votes: {votes[place]} | percentage: {percentage}% of the vote"
+        )
+
+    print("-------------------------------------")
+
+
 # Ask the user to give their favourite bubble tea pplace
 # Keep track of a tally
 # Data analysis
@@ -128,7 +167,8 @@ def chip_rater():
 
 def main():
     # vote_listed_choices()
-    chip_rater()
+    # chip_rater()
+    vote_open_choice()
 
 
 if __name__ == "__main__":

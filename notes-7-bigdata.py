@@ -18,6 +18,7 @@ def main():
     # uncle_fatihs = 0
     # club_ilia = 0
     # pizza_hut = 0
+    # Get info for fave burritos
     guadalupe = 0
     quesada = 0
 
@@ -46,6 +47,8 @@ def main():
         print("Guadalupe is the most popular burrito place!")
     elif quesada > guadalupe:
         print("Quesada is the most popular burrito place!")
+    else:
+        print("It's a tie between Guadalupe and Quesada!")
 
     # Display results
     # print(f"Uncle Fatih's Votes: {uncle_fatihs}")

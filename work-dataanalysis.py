@@ -37,26 +37,26 @@ def main():
     #     print(info[4])
 
     # calculate and display the average minimum temperature for all data points
-    total_minmtemp = 0
-    count = 0
+    # total_minmtemp = 0
+    # count = 0
 
-    for line in file:
-        info = line.split(",")
-        t_value = info[4].strip()
-        if t_value == "":
-            minmtemp = 0.0
-        else:
-            minmtemp = float(t_value)
-        total_minmtemp += minmtemp
-        count += 1
+    # for line in file:
+    #     info = line.split(",")
+    #     t_value = info[4].strip()
+    #     if t_value == "":
+    #         minmtemp = 0.0
+    #     else:
+    #         minmtemp = float(t_value)
+    #     total_minmtemp += minmtemp
+    #     count += 1
 
-    avg_minmtemp = total_minmtemp / count
+    # avg_minmtemp = total_minmtemp / count
 
-    print(f"The average minimum temperature for all data points is: {avg_minmtemp}")
+    # print(f"The average minimum temperature for all data points is: {avg_minmtemp}")
 
-    # convert this to celsius
-    temp_cel = (5 * (avg_minmtemp - 32)) / 9
-    print(f"The average minimum temperature in Celsius is {temp_cel}.")
+    # # convert this to celsius
+    # temp_cel = (5 * (avg_minmtemp - 32)) / 9
+    # print(f"The average minimum temperature in Celsius is {temp_cel}.")
 
     # calculate and display the average maximum temperature of all dates in June
     total_maxtemp = 0
@@ -66,16 +66,24 @@ def main():
         info = line.split(",")
         t_value = info[5].strip()
 
-        if t_value == "":
-            maxtemp = 0.0
+        month = info[0].strip()
+        date = month[6]
+
+        if date == "6":
+            if t_value == "":
+                maxtemp = 0.0
+            else:
+                maxtemp = float(t_value)
+            count += 1
+            total_maxtemp += maxtemp
         else:
-            minmtemp = float(t_value)
-        total_maxtemp += maxtemp
-        count += 1
+            pass
 
     avg_maxtemp = total_maxtemp / count
 
-    print(f"The average minimum temperature for all data points is: {avg_maxtemp}")
+    print(
+        f"The average maximum temperature for all dates in June is: {avg_maxtemp} deg F"
+    )
 
     file.close()
 

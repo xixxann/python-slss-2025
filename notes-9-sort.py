@@ -121,16 +121,84 @@ def sort_songs(songs: list[list[str]], col: int, ascending=True) -> list[list[st
 
 
 if __name__ == "__main__":
-    # Get all songs from Taylor Swift
-    taylors_songs = helper_spotify.songs_by_artist(
-        "data/spotify2024.csv", "Taylor Swift"
-    )
-    taylors_sorted_songs = sort_songs(taylors_songs, 11, ascending=False)
+    # # Get all songs from Taylor Swift
+    # taylors_songs = helper_spotify.songs_by_artist(
+    #     "data/spotify2024.csv", "Taylor Swift"
+    # )
+    # taylors_sorted_songs = sort_songs(taylors_songs, 11, ascending=False)
+
+    # # Header on the results
+    # print("Taylor Swift's Songs")
+    # print("______________________")
+    # print("Name\tYT Views")
+    # # For every song, print out the Track Name, YT Views
+    # for song in taylors_sorted_songs:
+    #     print(song[0], "\t", song[11])
+
+    # # Task 1
+    # # Use the helper_spotify.songs_by_artist() function to find songs by Ed Sheeran. For
+    # # each song, print out the name and the number of YouTube Views it has.
+    # ed_songs = helper_spotify.songs_by_artist("data/spotify2024.csv", "Ed Sheeran")
+
+    # # Header on the results
+    # print("Ed Sheeran's Songs")
+    # print("______________________")
+    # print("Name\tYT Views")
+    # # For every song, print out the Track Name, YT Views
+    # for song in ed_songs:
+    #     print(song[0], "\t", song[11])
+
+    # # Task 2
+    # # Use the sort_songs() function to sort the songs by YouTube Views in ascending order.
+    # # For each song in the sorted list, print out the name and the number of YouTube Views it
+    # # has.
+    # ed_songs = helper_spotify.songs_by_artist("data/spotify2024.csv", "Ed Sheeran")
+    # eds_sorted_songs = sort_songs(ed_songs, 11, ascending=True)
+
+    # # Header on the results
+    # print("Ed Sheeran's Songs")
+    # print("______________________")
+    # print("Name\tYT Views")
+    # # For every song, print out the Track Name, YT Views
+    # for song in eds_sorted_songs:
+    #     print(song[0], "\t", song[11])
+
+    # # Task 3
+    # # Use the sort_songs() function to sort the songs by TikTok Views in descending order.
+    # # For each song in the sorted list, print out the name and the number of TikTok Views it has.
+    # ed_songs = helper_spotify.songs_by_artist("data/spotify2024.csv", "Ed Sheeran")
+    # eds_sorted_songs = sort_songs(ed_songs, 15, ascending=False)
+
+    # # Header on the results
+    # print("Ed Sheeran's Songs")
+    # print("______________________")
+    # print("Name\tTik Tok Views")
+    # # For every song, print out the Track Name, YT Views
+    # for song in eds_sorted_songs:
+    #     print(song[0], "\t", song[15])
+
+    # Task 4 (Extending)
+    # In the helper_spotify.py file, either modify or create a new function that searches
+    # through the track name (reminder, our songs_by_artist() function searches through the
+    # artist column). Use it to find all songs that have a the in the track name.
+    tracks_with_the = helper_spotify.songs_through_tracks("data/spotify2024.csv")
 
     # Header on the results
-    print("Taylor Swift's Songs")
+    print("Tracks with The")
     print("______________________")
-    print("Name\tYT Views")
-    # For every song, print out the Track Name, YT Views
-    for song in taylors_sorted_songs:
-        print(song[0], "\t", song[11])
+    # For every song, print out the Track Name
+    for song in tracks_with_the:
+        print(song[0])
+
+    # # Task 5
+    # # Using the results in Task 3, sort the items by TikTok views. Print all the songs.
+    # ed_songs = helper_spotify.songs_by_artist("data/spotify2024.csv", "Ed Sheeran")
+    # eds_sorted_songs = sort_songs(ed_songs, 15, ascending=False)
+
+    # # Header on the results
+    # print("Ed Sheeran's Songs")
+    # print("______________________")
+    # print("Names")
+    # # For every song, print out the Track Name, YT Views
+    # for song in eds_sorted_songs:
+    #     print(song[0])

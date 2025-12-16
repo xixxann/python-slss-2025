@@ -189,6 +189,7 @@ if __name__ == "__main__":
     # For every song, print out the Track Name
     for song in tracks_with_the:
         print(song[0])
+    print(len(tracks_with_the))
 
     # # Task 5
     # # Using the results in Task 3, sort the items by TikTok views. Print all the songs.

@@ -76,6 +76,17 @@ class Ditto(Pokemon):
         print(f"{self.name} clones itself into {object}!")
 
 
+class Mew(Pokemon):
+    def __init__(self):
+        # Constructor
+        super().__init__()
+        self.name = "Mew"
+        self.type = "psychic"
+        self.species = "Mew"
+        self.level = 1
+        self.age = 0
+
+
 if __name__ == "__main__":
     # Create a pokemon object
     pokemon_one = Pokemon()
@@ -114,3 +125,7 @@ if __name__ == "__main__":
     ditto_one.talk()
     ditto_one.clone()
     ditto_one.duplicate()
+
+    pokemon_three = Mew()
+    pokemon_three.talk()
+    pokemon_three.stats()

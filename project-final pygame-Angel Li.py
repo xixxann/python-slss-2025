@@ -1,6 +1,6 @@
-# Trying Code
+# Final Project
 # Author: Angel Li
-# Date: Jan 14
+# Date: 12 January 2026
 
 import random
 
@@ -252,8 +252,8 @@ def game():
     for _ in range(num_enemies):
         enemy2 = Enemy2()
         # Randomize Movement
-        random_x = random.choice([-7, -5, 5, 7])
-        random_y = random.choice([-7, -5, 5, 7])
+        random_x = random.choice([-6, -4, 4, 6])
+        random_y = random.choice([-6, -4, 4, 6])
         enemy2.vel_x, enemy2.vel_y = random_x, random_y
         # Start in the middle of the screen
         enemy2.rect.center = (WIDTH / 2, HEIGHT / 2)

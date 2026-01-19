@@ -15,6 +15,9 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
 
+background_image = pygame.image.load("assets/bg1.jpg")
+intro_image = pygame.image.load("assets/intro-page.jpg")
+
 
 class Cookie(pygame.sprite.Sprite):
     def __init__(self):
@@ -23,7 +26,7 @@ class Cookie(pygame.sprite.Sprite):
 
         # Right version of Cookie and Left version
         self.image_right = pygame.image.load("assets/mcookie.png")
-        self.image_right = pygame.transform.scale_by(self.image_right, 0.3)
+        self.image_right = pygame.transform.scale_by(self.image_right, 0.25)
         self.image_left = pygame.transform.flip(self.image_right, True, False)
 
         self.image = self.image_right
@@ -115,6 +118,9 @@ class Potion(pygame.sprite.Sprite):
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
 
+    def level_up(self, val: int):
+        self.health *= val
+
 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
@@ -147,7 +153,7 @@ class Enemy2(pygame.sprite.Sprite):
         super().__init__()
 
         self.imageold = pygame.image.load("assets/enemy2.png")
-        self.image = pygame.transform.scale_by(self.imageold, 0.4)
+        self.image = pygame.transform.scale_by(self.imageold, 0.3)
 
         self.vel_x = 0
         self.vel_y = 0
@@ -184,13 +190,14 @@ def game():
     pygame.init()
 
     # CONSTANTS
-    WIDTH = 800
-    HEIGHT = 600
+    WIDTH = 1000
+    HEIGHT = 700
     SIZE = (WIDTH, HEIGHT)
 
     # Creating the Screen
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("Final Project")
+    screen.blit(intro_image, (0, 0))
 
     # Variables
     done = False
@@ -334,10 +341,15 @@ def game():
                 enemy2.level_up()
 
             potion = Potion()
-            potion.rect.centerx = 100
-            potion.rect.centery = 100
+            random_x = random.choice([-5, -3, -1, 1, 3, 5])
+            random_y = random.choice([-5, -3, -1, 1, 3, 5])
+            potion.vel_x, potion.vel_y = random_x, random_y
+            potion.rect.center = (WIDTH / 2, HEIGHT / 2)
             all_sprites_group.add(potion)
             potion_sprites_group.add(potion)
+
+            for potion in potion_sprites_group:
+                potion.level_up(5)
 
         # Collision between Player and Enemies
         enemies_collided = pygame.sprite.spritecollide(
@@ -360,6 +372,7 @@ def game():
         for potion in potion_collided:
             # increase Cookie's ife
             player.calc_health(potion.health)
+            print("Player has attained: POTION!")
 
         health_bar.update_info(player.get_damage_percentage())
 
@@ -368,7 +381,8 @@ def game():
             done = True
 
         # ------ DRAWING TO SCREEN
-        screen.fill(WHITE)
+        # screen.fill(WHITE)
+        screen.blit(background_image, (0, 0))
         all_sprites_group.draw(screen)
         screen.blit(health_bar, (10, 10))
 

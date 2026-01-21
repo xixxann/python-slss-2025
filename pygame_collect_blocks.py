@@ -46,7 +46,7 @@ class Mario(pygame.sprite.Sprite):
         super().__init__()
 
         # Right version of Mario and Left version
-        self.image_right = pygame.image.load("assets/mario-snes.png")
+        self.image_right = pygame.image.load("collect block assets/mario-snes.png")
         self.image_right = pygame.transform.scale_by(self.image_right, 0.5)
         self.image_left = pygame.transform.flip(self.image_right, True, False)
 
@@ -94,7 +94,7 @@ class Mario(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("assets/goomba-nes.png")
+        self.image = pygame.image.load("collect block assets/goomba-nes.png")
         self.rect = self.image.get_rect()
 
         self.vel_x = 0

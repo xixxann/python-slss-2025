@@ -14,9 +14,9 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
+pygame.mixer.init()
 
 background_image = pygame.image.load("assets/bg1.jpg")
-intro_image = pygame.image.load("assets/intro-page.jpg")
 
 
 class Cookie(pygame.sprite.Sprite):
@@ -24,7 +24,7 @@ class Cookie(pygame.sprite.Sprite):
         """The player"""
         super().__init__()
 
-        # Right version of Cookie and Left version
+        # Right and left version of Cookie
         self.image_right = pygame.image.load("assets/mcookie.png")
         self.image_right = pygame.transform.scale_by(self.image_right, 0.25)
         self.image_left = pygame.transform.flip(self.image_right, True, False)
@@ -32,7 +32,7 @@ class Cookie(pygame.sprite.Sprite):
         self.image = self.image_right
         self.rect = self.image.get_rect()
 
-        self.previous_x = 0
+        self.previous_x = 0  # helps with direction
         self.points = 0
         self.health = 100
 
@@ -79,7 +79,6 @@ class Cookie(pygame.sprite.Sprite):
 
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
-        """A coin"""
         super().__init__()
 
         self.imageold = pygame.image.load("assets/coin.png")
@@ -98,11 +97,11 @@ class Coin(pygame.sprite.Sprite):
 
 class Potion(pygame.sprite.Sprite):
     def __init__(self):
-        """A Potion to gain health status"""
+        """A potion to increase health"""
         super().__init__()
 
         self.imageold = pygame.image.load("assets/potion.png")
-        self.image = pygame.transform.scale_by(self.imageold, 0.2)
+        self.image = pygame.transform.scale_by(self.imageold, 0.15)
         self.rect = self.image.get_rect()
 
         self.vel_x = 0
@@ -128,7 +127,7 @@ class Enemy(pygame.sprite.Sprite):
         super().__init__()
 
         self.imageold = pygame.image.load("assets/enemy1.png")
-        self.image = pygame.transform.scale_by(self.imageold, 0.3)
+        self.image = pygame.transform.scale_by(self.imageold, 0.25)
 
         self.vel_x = 0
         self.vel_y = 0
@@ -138,13 +137,12 @@ class Enemy(pygame.sprite.Sprite):
         self.damage = 1
 
     def update(self):
-        # movement in the x- and y-axis
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
 
     def level_up(self):
         # increase damage
-        self.damage *= 1.5
+        self.damage *= 1.1
 
 
 class Enemy2(pygame.sprite.Sprite):
@@ -153,7 +151,7 @@ class Enemy2(pygame.sprite.Sprite):
         super().__init__()
 
         self.imageold = pygame.image.load("assets/enemy2.png")
-        self.image = pygame.transform.scale_by(self.imageold, 0.3)
+        self.image = pygame.transform.scale_by(self.imageold, 0.25)
 
         self.vel_x = 0
         self.vel_y = 0
@@ -163,13 +161,11 @@ class Enemy2(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
     def update(self):
-        # movement in the x- and y-axis
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
 
     def level_up(self):
-        # increase damage
-        self.damage *= 2
+        self.damage *= 1.5
 
 
 class HealthBar(pygame.Surface):
@@ -196,8 +192,7 @@ def game():
 
     # Creating the Screen
     screen = pygame.display.set_mode(SIZE)
-    pygame.display.set_caption("Final Project")
-    screen.blit(intro_image, (0, 0))
+    pygame.display.set_caption("Cookie Quest")
 
     # Variables
     done = False
@@ -213,6 +208,10 @@ def game():
     enemy_sprites_group = pygame.sprite.Group()
     coin_sprites_group = pygame.sprite.Group()
     potion_sprites_group = pygame.sprite.Group()
+
+    # Create background music
+    pygame.mixer.music.load("assets/bgm.mp3")
+    pygame.mixer.music.play(-1)
 
     # Create a player
     player = Cookie()
@@ -231,7 +230,7 @@ def game():
         all_sprites_group.add(potion)
         potion_sprites_group.add(potion)
 
-    # Create blocks and place them throughout the screen
+    # Create coins and place them throughout the screen
     for _ in range(num_coins):
         coin = Coin()
         # Choose a random position for it
@@ -258,11 +257,9 @@ def game():
     # Create Enemy #2
     for _ in range(num_enemies):
         enemy2 = Enemy2()
-        # Randomize Movement
         random_x = random.choice([-6, -4, 4, 6])
         random_y = random.choice([-6, -4, 4, 6])
         enemy2.vel_x, enemy2.vel_y = random_x, random_y
-        # Start in the middle of the screen
         enemy2.rect.center = (WIDTH / 2, HEIGHT / 2)
 
         all_sprites_group.add(enemy2)
@@ -295,13 +292,13 @@ def game():
 
         # Collision between Player and Coins
         coins_collided = pygame.sprite.spritecollide(player, coin_sprites_group, True)
-        # print Cookie has gained with a coin!
+        # Print Cookie has gained with a coin!
         for coin in coins_collided:
             if type(coin) is Coin:
                 print("Player score: ", player.incr_score(coin.point_value))
 
-        # Fill blocks if block list is empty
-        # Add more blocks and add 2 enemies
+        # Fill coins if coin list is empty
+        # Add more coins and add more enemies
         if not coin_sprites_group:
             level += 1
 
@@ -332,7 +329,6 @@ def game():
             random_x = random.choice([-7, -5, 5, 7])
             random_y = random.choice([-7, -5, 5, 7])
             enemy2.vel_x, enemy2.vel_y = random_x, random_y
-            # Start in the middle of the screen
             enemy2.rect.center = (WIDTH / 2, HEIGHT / 2)
             all_sprites_group.add(enemy2)
             enemy_sprites_group.add(enemy2)
@@ -379,9 +375,10 @@ def game():
         # Game ends when Player's health is zero or less
         if player.health <= 0:
             done = True
+            # Stops the music
+            pygame.mixer.music.stop()
 
         # ------ DRAWING TO SCREEN
-        # screen.fill(WHITE)
         screen.blit(background_image, (0, 0))
         all_sprites_group.draw(screen)
         screen.blit(health_bar, (10, 10))

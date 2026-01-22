@@ -1,0 +1,264 @@
+{
+  "main": {
+    "id": "0f4351b6a7767a30",
+    "type": "split",
+    "children": [
+      {
+        "id": "1aeb767f4aabccc4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e8dc281ad6ce3660",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Journal-16-Angel Li.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Journal-16-Angel Li"
+            }
+          },
+          {
+            "id": "71c6790a077b3bb7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Class Notes/04-Git-Intro.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04-Git-Intro"
+            }
+          },
+          {
+            "id": "bc2bd5ea61766d8c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Class Notes/04-Git-Intro.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04-Git-Intro"
+            }
+          },
+          {
+            "id": "c5e06f75d518c8af",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Journal/Journal-16-Angel Li.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Journal-16-Angel Li"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f311c152a3aa62c1",
+    "type": "split",
+    "children": [
+      {
+        "id": "703349af9a10e0ad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2243c7b9fb0569b8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "af9b2545266fb500",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "4807574756c282e8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ed0832dc2ee42f32",
+    "type": "split",
+    "children": [
+      {
+        "id": "03e513e9eefe27d6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "59b037bb9b916461",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Class Notes/05-Python-String Methods.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 05-Python-String Methods"
+            }
+          },
+          {
+            "id": "ab40e84334f1c5ce",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Class Notes/05-Python-String Methods.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 05-Python-String Methods"
+            }
+          },
+          {
+            "id": "bbc1ea4bb09bff56",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "31773153e8b464f4",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "20b83f765eb6210f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Class Notes/05-Python-String Methods.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 05-Python-String Methods"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "c5e06f75d518c8af",
+  "lastOpenFiles": [
+    "Journal/Journal-17-Angel Li.md",
+    "Screenshot 2026-01-22 at 9.25.37 AM.png",
+    "Journal/Journal-12-Angel Li.md",
+    "Journal/Journal-15-Angel Li.md",
+    "Journal/Journal-09-Angel Li.md",
+    "Journal/Journal-07-Angel Li.md",
+    "Journal/Journal-02-Angel Li.md",
+    "Class Notes/12-Python-Classes and Objects.md",
+    "Class Notes/11-Python Intro to Sort.md",
+    "Class Notes/10-Python-Intro to Search.md",
+    "Class Notes/08-Python-Numbers and Operations (and loops).md",
+    "Class Notes/05-Python-String Methods.md",
+    "Class Notes/02-Python-Intro.md",
+    "Class Notes/01- Introduction to Markdown.md",
+    "Journal/Journal-16-Angel Li.md",
+    "Class Notes/04-Git-Intro.md",
+    "Screenshot 2026-01-16 at 2.44.47 PM.png",
+    "Screenshot 2026-01-09 at 2.35.44 PM.png",
+    "CYOA-Feedback.md",
+    "Journal/Journal-14-Angel Li.md",
+    "Journal/Journal-13-Angel Li.md",
+    "Screenshot 2025-12-12 at 2.10.27 PM.png",
+    "CYOA-Feedback -Mariama.md",
+    "Screenshot 2025-12-18 at 8.48.24 AM.png",
+    "Class Notes/09-Python-Files and Data.md",
+    "Class Notes/07-Python-Drawing and Loops.md",
+    "Class Notes/Resources.md",
+    "Journal/Journal-11-Angel Li.md",
+    "Journal/Journal-10-Angel Li.md",
+    "Journal/Journal-01-Angel Li.md",
+    "Journal",
+    "Class Notes"
+  ]
+}
